@@ -22,11 +22,11 @@ const SITE_URL = "https://www.russellsroofing.uk";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Russells Roofing Services Ltd | Bexley & SE London Roofers — 30 Years",
+    default: "Russells Roofing Services Ltd | Bexley & SE London Roofers — 25+ Years",
     template: "%s | Russells Roofing Services Ltd",
   },
   description:
-    "Family-run roofers in Bexley, Kent serving South East London for 30+ years. Roof replacements, repairs, flat roofing, chimney work & licensed asbestos removal. Rated 9.87/10 on Checkatrade. Free quotes.",
+    "Family-owned roofers in Bexley, Kent serving South East London for over 25 years. Roof replacements, repairs, flat roofing, chimney work & UKATA-trained asbestos roof work. 9.6/10 on Checkatrade (462 reviews). Free quotes, no deposits.",
   keywords: [
     "roofer Bexley",
     "roofing Bexley",
@@ -48,15 +48,15 @@ export const metadata: Metadata = {
     locale: "en_GB",
     url: SITE_URL,
     siteName: "Russells Roofing Services Ltd",
-    title: "Bexley & SE London's Trusted Roofers — 30 Years of Honest Roofing",
+    title: "Bexley & SE London's Trusted Roofers — Over 25 Years of Honest Roofing",
     description:
-      "Free, no-obligation quotes. Fully insured. Licensed asbestos removal. Rated 9.87/10 on Checkatrade from 334 reviews.",
+      "Free, no-obligation quotes. Fully insured. UKATA-trained asbestos roof work. No deposits. Rated 9.6/10 on Checkatrade from 462 reviews.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Russells Roofing Services Ltd — Bexley & SE London",
     description:
-      "30 years of honest, insurance-backed roofing. Rated 9.87/10 on Checkatrade. Free quotes.",
+      "Over 25 years of honest, insurance-backed roofing. Rated 9.6/10 on Checkatrade (462 reviews). Free quotes, no deposits.",
   },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
   category: "Home Services",
@@ -68,12 +68,12 @@ const localBusinessSchema = {
   name: "Russells Roofing Services Ltd",
   legalName: "Russells Roofing Services Ltd",
   description:
-    "Family-run roofing contractor with 30+ years of experience serving Bexley, South East London and Kent. Fully insured with licensed asbestos removal and Environment Agency waste carrier's licence.",
+    "Family-owned roofing contractor with over 25 years of experience serving Bexley, South East London and Kent. Fully insured, insurance-backed guarantee, UKATA-trained for asbestos roof work. No deposits taken.",
   url: SITE_URL,
   telephone: "+441322681808",
   email: "info@russellsroofing.uk",
   image: `${SITE_URL}/og-image.jpg`,
-  priceRange: "££",
+  // priceRange omitted — no published pricing. Free quotes.
   address: {
     "@type": "PostalAddress",
     streetAddress: "8 The Old Mill, Bexley High Street",
@@ -97,35 +97,28 @@ const localBusinessSchema = {
     { "@type": "City", name: "Orpington" },
     { "@type": "City", name: "Dartford" },
   ],
-  openingHoursSpecification: [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "07:30",
-      closes: "18:00",
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: "Saturday",
-      opens: "08:00",
-      closes: "14:00",
-    },
-  ],
-  foundingDate: "1995",
+  // [CONFIRM] Office hours not published — only 24-hour emergency call-out confirmed on Checkatrade.
+  // openingHoursSpecification intentionally omitted until client confirms exact hours.
+  foundingLocation: {
+    "@type": "Place",
+    name: "8 The Old Mill, Bexley High Street",
+  },
   aggregateRating: {
     "@type": "AggregateRating",
-    ratingValue: "9.87",
+    ratingValue: "9.55",
     bestRating: "10",
-    ratingCount: "334",
+    ratingCount: "462",
+    url: "https://www.checkatrade.com/trades/russellsroofingserviceltd",
   },
   hasCredential: [
-    "Checkatrade Verified",
+    "Checkatrade Verified (member since January 2013)",
     "TrustMark Registered (reg. 3168056)",
-    "Homepro",
-    "Licensed Asbestos Removal",
-    "Environment Agency Waste Carrier's Licence",
+    "United Kingdom Asbestos Training Association (UKATA)",
   ],
-  sameAs: ["https://www.checkatrade.com/", "https://www.trustmark.org.uk/"],
+  sameAs: [
+    "https://www.checkatrade.com/trades/russellsroofingserviceltd",
+    "https://www.trustmark.org.uk/firms/RUSSELLS%20ROOFING%20SERVICE%20LTD-3168056-DA5%201JX",
+  ],
 };
 
 export default function RootLayout({

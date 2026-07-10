@@ -1,9 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { reviews } from "@/lib/business-data";
+import { reviews, business } from "@/lib/business-data";
 import { useNav } from "@/lib/store";
-import { Star, Quote, ExternalLink } from "lucide-react";
+import { Star, Quote, ExternalLink, BadgeCheck } from "lucide-react";
 
 export function Reviews() {
   const { setView } = useNav();
@@ -13,28 +13,28 @@ export function Reviews() {
         <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
           <div className="max-w-2xl">
             <p className="font-display text-sm font-semibold uppercase tracking-[0.18em] text-accent">
-              Real reviews
+              Real Checkatrade reviews
             </p>
             <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight sm:text-4xl">
-              9.87/10 from 334 Checkatrade reviews
+              {business.checkatradeRatingDisplay}/10 from {business.checkatradeReviews} reviews on Checkatrade
             </h2>
             <p className="mt-4 text-base text-muted-foreground sm:text-lg">
-              Attributed by first name and postcode area — real reviews from real Bexley and SE London
-              homeowners. We don't do fabricated testimonials.
+              The reviews below are verbatim from our public Checkatrade profile — attributed exactly as
+              Checkatrade publishes them. Click through to read all {business.checkatradeReviews} reviews in full.
             </p>
           </div>
           <a
-            href="https://www.checkatrade.com/"
+            href={business.checkatradeProfileUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex shrink-0 items-center gap-2 rounded-md border border-border bg-card px-4 py-2.5 text-sm font-semibold transition hover:border-accent/40 hover:text-accent"
           >
-            See all 334 reviews on Checkatrade
+            See all reviews on Checkatrade
             <ExternalLink className="h-4 w-4" />
           </a>
         </div>
 
-        {/* Featured review */}
+        {/* Aggregate rating band */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -49,26 +49,28 @@ export function Reviews() {
                   <Star key={i} className="h-4 w-4 fill-accent text-accent" />
                 ))}
               </div>
-              <Quote className="mt-4 h-7 w-7 text-accent" />
-              <p className="mt-2 max-w-2xl font-display text-xl font-medium leading-snug sm:text-2xl">
-                {reviews[0].quote}
+              <p className="mt-3 font-display text-2xl font-bold sm:text-3xl">
+                {business.checkatradeRatingDisplay}/10 average · {business.checkatradeReviews} verified reviews
               </p>
-              <p className="mt-4 text-sm text-primary-foreground/70">
-                {reviews[0].name} · {reviews[0].area} · {reviews[0].service} · {reviews[0].date}
+              <p className="mt-2 text-sm text-primary-foreground/70">
+                Member of Checkatrade since January 2013 · Quality of work 9.8 · Reliability 9.8 ·
+                Communication 10
               </p>
             </div>
             <div className="shrink-0 rounded-xl bg-primary-foreground/10 px-6 py-4 text-center backdrop-blur">
-              <p className="font-display text-4xl font-extrabold text-accent">9.87</p>
+              <p className="font-display text-4xl font-extrabold text-accent">
+                {business.checkatradeRatingDisplay}
+              </p>
               <p className="text-xs text-primary-foreground/70">/ 10 average</p>
             </div>
           </div>
         </motion.div>
 
-        {/* Review grid */}
+        {/* Real review grid — verbatim from Checkatrade */}
         <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {reviews.slice(1).map((r, i) => (
+          {reviews.map((r, i) => (
             <motion.article
-              key={r.name + r.area}
+              key={r.area + r.date}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
@@ -90,23 +92,39 @@ export function Reviews() {
                 </div>
                 <span className="text-xs font-semibold text-accent">{r.rating}/10</span>
               </div>
-              <p className="mt-3 flex-1 text-sm leading-relaxed text-foreground/90">"{r.quote}"</p>
+              <Quote className="mt-3 h-5 w-5 text-accent/40" />
+              <p className="mt-1 flex-1 text-sm leading-relaxed text-foreground/90">{r.quote}</p>
               <div className="mt-4 border-t border-border pt-3">
-                <p className="text-sm font-semibold">
+                <p className="flex items-center gap-1.5 text-sm font-semibold">
                   {r.name} <span className="font-normal text-muted-foreground">· {r.area}</span>
                 </p>
                 <p className="text-xs text-muted-foreground">
                   {r.service} · {r.date}
+                </p>
+                <p className="mt-1.5 inline-flex items-center gap-1 text-[10px] font-medium uppercase tracking-wider text-accent">
+                  <BadgeCheck className="h-3 w-3" /> Verified on Checkatrade
                 </p>
               </div>
             </motion.article>
           ))}
         </div>
 
-        <div className="mt-10 text-center">
+        <div className="mt-8 text-center">
+          <p className="text-xs text-muted-foreground">
+            Reviews reproduced verbatim from our public{" "}
+            <a
+              href={business.checkatradeProfileUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent underline underline-offset-2"
+            >
+              Checkatrade profile
+            </a>
+            . {business.checkatradeReviews} reviews and counting — read them all there.
+          </p>
           <button
             onClick={() => setView("gallery")}
-            className="inline-flex items-center gap-2 rounded-md bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground shadow-orange-glow transition hover:bg-accent/90"
+            className="mt-6 inline-flex items-center gap-2 rounded-md bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground shadow-orange-glow transition hover:bg-accent/90"
           >
             See our work in the gallery
           </button>

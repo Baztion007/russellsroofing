@@ -16,7 +16,7 @@ export function ServicesView() {
       <PageHeader
         eyebrow="Our services"
         title="Full-service roofing across Bexley & SE London"
-        subtitle="From a single slipped tile to a complete re-roof — and the licensed asbestos work most local roofers can't touch. Pick a service to learn more, or jump straight to a free quote."
+        subtitle="From a single slipped tile to a complete re-roof — plus UKATA-trained asbestos roof work most local roofers can't offer. Pick a service to learn more, or jump straight to a free quote."
       >
         <div className="flex flex-wrap gap-3">
           <Button
@@ -56,7 +56,7 @@ export function ServicesView() {
                   </span>
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-wider text-accent">
-                      0{idx + 1} · From £{cat.startingFrom.toLocaleString()}
+                      0{idx + 1} · Free quote
                     </p>
                     <h2 className="font-display text-2xl font-bold">{cat.title}</h2>
                   </div>

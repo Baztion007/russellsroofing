@@ -122,19 +122,19 @@ function TermsContent() {
       <h2>Quotes and estimates</h2>
       <p>
         All quotes are free and without obligation. A written fixed-price quote is provided after a site survey
-        and is valid for 30 days unless stated otherwise. Indicative estimates produced by the online quote
-        calculator are ballpark figures only and are not binding.
+        and is valid for 30 days unless stated otherwise. The online quick quote wizard collects job details
+        to help us prepare — it does not produce a price estimate or constitute a quote.
       </p>
       <h2>Commissioning work</h2>
       <p>
-        Work is commissioned when you accept a written quote. We'll confirm the start date, scope, and any
-        deposit in writing. We don't take payment before works are commissioned.
+        Work is commissioned when you accept a written quote. We'll confirm the start date and scope in writing.
+        We do not take deposits — no payment is due until work is completed.
       </p>
       <h2>Payment</h2>
       <p>
-        Payment terms are stated on your quote. Typically: a deposit on commissioning (where applicable),
-        staged payments for larger works, and balance on completion. Payment is due within 7 days of invoice
-        unless agreed otherwise. Late payment may incur statutory interest.
+        We do not take deposits. Payment is due on completion of the agreed work, with staged payments only
+        for larger projects where agreed in writing in advance. Payment is due within 7 days of invoice unless
+        agreed otherwise. Late payment may incur statutory interest. Cards are accepted.
       </p>
       <h2>Access and site conditions</h2>
       <ul>
@@ -144,8 +144,10 @@ function TermsContent() {
       </ul>
       <h2>Asbestos and waste</h2>
       <p>
-        Asbestos removal is carried out under our asbestos removal licence and Environment Agency waste
-        carrier's licence, to current HSE guidance. Disposal certificates are provided on request.
+        Asbestos cement roof work is carried out by our UKATA-trained team (United Kingdom Asbestos Training
+        Association) to current HSE guidance, with licensed disposal. Disposal records are available on
+        request. Where a job requires a full HSE asbestos removal licence, we'll tell you and refer you
+        appropriately.
       </p>
       <h2>Guarantees</h2>
       <p>

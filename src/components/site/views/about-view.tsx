@@ -8,24 +8,24 @@ import { SiteIcon } from "@/components/site/icon";
 import { Button } from "@/components/ui/button";
 import { ChevronRight, Phone, MapPin, Clock, Award, Users, ThumbsUp, Hammer } from "lucide-react";
 
+// Milestones use only verified dates. Unverified years (founding, “10,000th job”) removed.
+// Checkatrade membership verified as January 2013. Rating/reviews verified live.
 const milestones = [
-  { year: "1995", title: "The beginning", desc: "Russells Roofing starts out as a family business on Bexley High Street." },
-  { year: "2001", title: "Checkatrade member", desc: "Among the first Bexley roofers to join Checkatrade — now 25+ years on the platform." },
-  { year: "2010", title: "Asbestos licensed", desc: "Adds licensed asbestos removal — a service most local roofers still can't offer." },
-  { year: "2018", title: "10,000th job", desc: "Surpasses 10,000 completed roofing jobs across Bexley and SE London." },
-  { year: "2026", title: "9.87/10 rated", desc: "334 verified Checkatrade reviews and counting. Still family-run, still Bexley-based." },
+  { year: "2013", title: "Joined Checkatrade", desc: "Russells Roofing becomes an approved Checkatrade member — vetted and accredited." },
+  { year: "2013+", title: "UKATA asbestos training", desc: "Team certified by the United Kingdom Asbestos Training Association for asbestos cement roof work." },
+  { year: "Today", title: "9.6/10 rated", desc: `${business.checkatradeReviews} verified Checkatrade reviews and counting. Still family-owned, still Bexley-based.` },
 ];
 
 const values = [
   {
     icon: "thumbsup",
     title: "Honest first",
-    desc: "If a repair will do, we say so. We've turned down more replacements than we've sold — it's why the reviews are 9.87/10.",
+    desc: "If a repair will do, we say so. We photograph and video every issue we find — so you see what we see before you decide.",
   },
   {
     icon: "users",
     title: "Family, not franchise",
-    desc: "The same family running it since day one. You speak to people who care about the name on the van.",
+    desc: "Family-owned and run by Adam Russell. You speak to people who care about the name on the van.",
   },
   {
     icon: "hammer",
@@ -34,8 +34,9 @@ const values = [
   },
   {
     icon: "award",
-    title: "Properly licensed",
-    desc: "Asbestos removal licence, Environment Agency waste carrier, TrustMark registered, fully insured.",
+    title: "Properly trained & insured",
+    // [CONFIRM] Only UKATA training is verified on Checkatrade. Do not claim a full HSE asbestos licence.
+    desc: "UKATA-trained for asbestos roof work, TrustMark registered, fully insured, and insurance-backed guarantee on all work.",
   },
 ];
 
@@ -46,7 +47,7 @@ export function AboutView() {
       <PageHeader
         eyebrow="About us"
         title={`${business.yearsTrading} years of honest roofing in Bexley`}
-        subtitle={`${business.legalName} is a ${business.structure.toLowerCase()} roofing contractor based at the Old Mill on Bexley High Street. We've spent three decades looking after the roofs of Bexley, South East London and North Kent — large jobs and small.`}
+        subtitle={`${business.legalName} is a ${business.structure.toLowerCase()} roofing contractor based at the Old Mill on Bexley High Street. We've spent over 25 years looking after the roofs of Bexley, South East London and North Kent — large jobs and small.`}
       />
 
       {/* Story + image */}
@@ -67,7 +68,7 @@ export function AboutView() {
                 loading="lazy"
               />
               <div className="absolute bottom-4 left-4 rounded-lg bg-primary/90 px-4 py-2 text-primary-foreground backdrop-blur">
-                <p className="font-display text-sm font-bold">Bexley High Street · since {business.foundingYear}</p>
+                <p className="font-display text-sm font-bold">Bexley High Street · over 25 years local</p>
               </div>
             </motion.div>
 
@@ -80,15 +81,16 @@ export function AboutView() {
               </h2>
               <div className="mt-5 space-y-4 text-base leading-relaxed text-muted-foreground">
                 <p>
-                  We started out in {business.foundingYear} as a one-van operation working out of Bexley. Three
-                  decades on, we're still here — still family-run, still answering the phone ourselves, still
-                  treating every roof like it's the one over our own heads.
+                  We started out as a one-van family operation working out of Bexley. Over 25 years on, we're
+                  still here — still family-owned and run by Adam Russell, still answering the phone ourselves,
+                  still treating every roof like it's the one over our own heads.
                 </p>
                 <p>
                   What's changed is the scope. We're now one of the few roofing contractors in South East London
-                  holding a full <strong className="text-foreground">asbestos removal licence</strong>, an{" "}
-                  <strong className="text-foreground">Environment Agency waste carrier's licence</strong>, and a
-                  25-year unbroken track record on Checkatrade at <strong className="text-foreground">{business.checkatradeRating}/10</strong>.
+                  with a <strong className="text-foreground">UKATA-trained asbestos team</strong>, a 13-year
+                  unbroken track record on Checkatrade (member since January 2013), and a current rating of{" "}
+                  <strong className="text-foreground">{business.checkatradeRatingDisplay}/10</strong> from{" "}
+                  <strong className="text-foreground">{business.checkatradeReviews} reviews</strong>.
                 </p>
                 <p>
                   What hasn't changed is the approach: turn up when we say, diagnose the real problem, quote
@@ -107,8 +109,8 @@ export function AboutView() {
                   <p className="text-xs text-muted-foreground">Verified reviews</p>
                 </div>
                 <div className="rounded-xl border border-border bg-card p-4 shadow-brand">
-                  <p className="font-display text-2xl font-extrabold text-accent">9.87</p>
-                  <p className="text-xs text-muted-foreground">Checkatrade rating</p>
+                  <p className="font-display text-2xl font-extrabold text-accent">{business.checkatradeRatingDisplay}</p>
+                  <p className="text-xs text-muted-foreground">Checkatrade rating /10</p>
                 </div>
                 <div className="rounded-xl border border-border bg-card p-4 shadow-brand">
                   <p className="font-display text-2xl font-extrabold text-accent">8</p>
@@ -230,12 +232,11 @@ export function AboutView() {
                 <div className="flex items-start gap-3">
                   <Clock className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
                   <div>
-                    <p className="font-semibold">Opening hours</p>
-                    {business.openingHours.map((h) => (
-                      <p key={h.day} className="text-primary-foreground/70">
-                        {h.day}: {h.hours}
-                      </p>
-                    ))}
+                    <p className="font-semibold">Hours & availability</p>
+                    <p className="text-primary-foreground/70">{business.emergencyCallout} — 7 days.</p>
+                    <p className="text-primary-foreground/70">
+                      Call us for current office hours.
+                    </p>
                   </div>
                 </div>
               </div>

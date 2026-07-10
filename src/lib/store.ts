@@ -17,7 +17,7 @@ export type ViewId =
 
 export type QuotePrefill = {
   serviceType?: string;
-  estimate?: number;
+  postcode?: string;
   urgency?: string;
 };
 

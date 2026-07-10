@@ -1,9 +1,24 @@
 // Single source of truth for all verified business facts.
-// Source: /home/z/my-project/upload/Russells_Roofing_Smart_Site_Prompt_v2.md
-// DO NOT reintroduce Yorkshire/Hull/Beverley references — this business is in Bexley, Kent.
+//
+// SOURCES (verified 2026-07-10):
+//   1. Live site: https://www.russellsroofing.uk/ (page_reader)
+//   2. Checkatrade profile: https://www.checkatrade.com/trades/russellsroofingserviceltd (page_reader)
+//   3. TrustMark: https://www.trustmark.org.uk/firms/...3168056-DA5 1JX (web_search)
+//   4. Companies House: Company No 13980993 (web_search)
+//
+// ⚠️ ITEMS REQUIRING CLIENT CONFIRMATION BEFORE LAUNCH (flagged inline with [CONFIRM]):
+//   - Office hours (not published on live site or Checkatrade — only "24 hour call-out" confirmed)
+//   - Whether the business holds a full HSE asbestos removal LICENCE vs. UKATA training only
+//     (Checkatrade lists "United Kingdom Asbestos Training Association" — training, not a licence.
+//      The live site lists "Asbestos removal" as a service. Lower-risk asbestos cement work can be
+//      done by trained non-licensed contractors. Do NOT publish "Licensed asbestos removal" until
+//      the client confirms they hold an HSE licence.)
+//   - Specific "from" pricing (not published anywhere — removed from this build; use "Free quote")
 
 export const business = {
   legalName: "Russells Roofing Services Ltd",
+  // Registered name per Companies House (No 13980993) is "RUSSELLS ROOFING SERVICE LTD" (singular).
+  // Trading name on the live site is "Russells Roofing Services Ltd" (plural). We use the trading name.
   shortName: "Russells Roofing",
   tagline: "Bexley & South East London's Trusted Roofers",
   address: {
@@ -12,57 +27,81 @@ export const business = {
     postcode: "DA5 1JX",
     full: "8 The Old Mill, Bexley High Street, Bexley, Kent, DA5 1JX",
   },
+  // Two numbers published on the live site footer
   phone: "01322 681808",
   phoneHref: "tel:+441322681808",
+  mobile: "07760 474544",
+  mobileHref: "tel:+447760474544",
   email: "info@russellsroofing.uk",
   emailHref: "mailto:info@russellsroofing.uk",
   website: "https://www.russellsroofing.uk",
-  yearsTrading: "30+",
-  checkatradeYears: "25+",
-  checkatradeRating: "9.87",
-  checkatradeReviews: 334,
+  // Checkatrade Company Info: "in operation for over 25 years"
+  yearsTrading: "25+",
+  // Checkatrade profile: "Member since January 2013" → 13 years on Checkatrade
+  checkatradeYears: "13",
+  // Checkatrade profile header: "9.55/10 · 462 reviews" (displayed as 9.6/10 rounded in search)
+  checkatradeRating: "9.55",
+  checkatradeRatingDisplay: "9.6",
+  checkatradeReviews: 462,
+  checkatradeProfileUrl: "https://www.checkatrade.com/trades/russellsroofingserviceltd",
   trustmarkReg: "3168056",
-  foundingYear: 1995,
-  structure: "Family-run",
-  // Owner name unconfirmed per brief — use owner-free voice, but allow "Adam" placeholder where useful
+  trustmarkUrl:
+    "https://www.trustmark.org.uk/firms/RUSSELLS%20ROOFING%20SERVICE%20LTD-3168056-DA5%201JX",
+  companyNumber: "13980993",
+  vatNumber: "GB 416 6518 92",
+  structure: "Family-owned",
+  // Owner confirmed on Checkatrade Company Info: "Owner: Adam Russell"
+  ownerName: "Adam Russell",
   ownerFirstName: "Adam",
-  openingHours: [
-    { day: "Monday – Friday", hours: "7:30am – 6:00pm" },
-    { day: "Saturday", hours: "8:00am – 2:00pm" },
-    { day: "Sunday", hours: "Emergency call-outs only" },
-  ],
+  // [CONFIRM] foundingYear not verified — live site and Checkatrade do not state a founding year.
+  // Checkatrade says "over 25 years" in operation. Do not publish a specific founding year until confirmed.
+  // [CONFIRM] Office hours not published on live site or Checkatrade. Only "24 hour call-out" confirmed.
+  // Removed specific hours until client confirms. Emergency call-out is verified.
+  emergencyCallout: "24-hour emergency call-out",
+  openingHoursNote: "Call us for current office hours — emergency call-outs 7 days.",
+  // Real policies from Checkatrade profile:
+  // "All of our work is back up by insurance backed guarantee, we do not take deposits."
+  insuranceBackedGuarantee: true,
+  noDeposits: true,
+  freeEstimates: true,
+  cardsAccepted: true,
+  insuranceWork: true,
 } as const;
 
 export const accreditations = [
   {
     name: "Checkatrade Verified",
-    detail: "9.87/10 from 334 reviews · 25+ years on the platform",
+    detail: `9.55/10 from ${business.checkatradeReviews} reviews · member since January 2013`,
     icon: "badge-check",
+    url: business.checkatradeProfileUrl,
   },
   {
     name: "TrustMark Registered",
-    detail: "Government-endorsed quality scheme · Reg. 3168056",
+    detail: `Government-endorsed quality scheme · Reg. ${business.trustmarkReg}`,
     icon: "shield-check",
+    url: business.trustmarkUrl,
   },
   {
-    name: "Licensed Asbestos Removal",
-    detail: "Fully licensed to survey & remove asbestos roofing materials",
+    name: "UK Asbestos Training (UKATA)",
+    // [CONFIRM] Checkatrade lists "United Kingdom Asbestos Training Association" (training),
+    // NOT a full HSE asbestos removal licence. Do not claim "Licensed" until confirmed.
+    detail: "UKATA-trained for asbestos cement roof work · removal service available",
     icon: "hard-hat",
   },
   {
-    name: "Environment Agency Waste Carrier",
-    detail: "Licensed waste carrier — all roofing waste disposed of legally",
-    icon: "recycle",
-  },
-  {
-    name: "Fully Insured",
-    detail: "Comprehensive public liability insurance in place",
+    name: "Insurance-Backed Guarantee",
+    detail: "All work backed by an insurance-backed guarantee",
     icon: "shield",
   },
   {
-    name: "Homepro Listed",
-    detail: "Long-standing Homepro registered tradesperson",
-    icon: "home",
+    name: "Fully Insured",
+    detail: "Comprehensive public liability insurance · insurance work undertaken",
+    icon: "shield",
+  },
+  {
+    name: "No Deposits Taken",
+    detail: "We don't take deposits — pay on completion of the agreed work",
+    icon: "thumbsup",
   },
 ] as const;
 
@@ -72,7 +111,7 @@ export type ServiceCategory = {
   short: string;
   description: string;
   icon: string;
-  startingFrom: number;
+  // REMOVED startingFrom pricing — not published by the business. Use "Free quote" instead.
   services: string[];
   highlights: string[];
 };
@@ -85,7 +124,6 @@ export const serviceCategories: ServiceCategory[] = [
     description:
       "Complete roof replacements using pitched tiles, slates or flat systems — installed to manufacturer spec with proper battening, membrane and ridge detailing.",
     icon: "home",
-    startingFrom: 4500,
     services: [
       "Complete roof replacements",
       "Tile & slate re-roofs",
@@ -93,26 +131,29 @@ export const serviceCategories: ServiceCategory[] = [
       "Ridge work & dry ridge systems",
       "Velux windows & rooflights",
       "Valley linings",
+      "New tiles & slates",
+      "Replaced ridge",
     ],
-    highlights: ["Manufacturer-backed materials", "Dry ridge & verge options", "25-year workmanship expectation"],
+    highlights: ["Manufacturer-backed materials", "Dry ridge & verge options", "Insurance-backed guarantee"],
   },
   {
     id: "repairs-maintenance",
     title: "Repairs & Maintenance",
     short: "Honest, lasting roof repairs",
     description:
-      "From a slipped tile to a stubborn leak, we diagnose the real cause before quoting — no upselling, no false urgency. Annual maintenance plans available.",
+      "From a slipped tile to a stubborn leak, we diagnose the real cause before quoting — no upselling, no false urgency. We photograph and video every problem we find.",
     icon: "wrench",
-    startingFrom: 95,
     services: [
       "Leak repairs",
       "Tile & slate replacement",
       "Tile/slate re-bedding",
       "Batten repair & replacement",
       "General building repairs",
+      "Roof surveys",
+      "Roof cleaning",
       "Annual roof maintenance plans",
     ],
-    highlights: ["Free no-obligation quote", "Same-week call-outs", "Photo evidence of every issue"],
+    highlights: ["Free no-obligation quote", "Photos & videos of every issue", "Same-week call-outs"],
   },
   {
     id: "flat-roofing",
@@ -121,7 +162,6 @@ export const serviceCategories: ServiceCategory[] = [
     description:
       "Specialist flat roofing across four systems — 3-layer mineral felt, GRP fibreglass, modified bitumen and rubber membrane — matched to the roof, not our preference.",
     icon: "layers",
-    startingFrom: 1200,
     services: [
       "3-layer mineral felt systems",
       "GRP fibreglass flat roofing",
@@ -129,8 +169,10 @@ export const serviceCategories: ServiceCategory[] = [
       "Rubber membrane (EPDM) roofing",
       "New felt installation",
       "Flat roof repairs & re-covering",
+      "Corrugated roof repair",
+      "Polycarbonate roof repair",
     ],
-    highlights: ["Four system options", "Hot-box free installation where possible", "20+ year system warranties"],
+    highlights: ["Four system options", "Hot-box free installation where possible", "Insurance-backed guarantee"],
   },
   {
     id: "chimney-work",
@@ -139,10 +181,9 @@ export const serviceCategories: ServiceCategory[] = [
     description:
       "Chimney flashing, pointing, reduction and full removal — handled safely with proper leadwork and weatherproofing after any structural change.",
     icon: "factory",
-    startingFrom: 350,
     services: [
       "Chimney flashing",
-      "Chimney pointing",
+      "Chimney pointing & re-pointing",
       "Chimney reduction",
       "Chimney removal",
       "Chimney repairs",
@@ -157,34 +198,34 @@ export const serviceCategories: ServiceCategory[] = [
     description:
       "uPVC and timber roofline replacement, gutter clearing, realignment and repair — the part of your roof most homeowners forget until water gets in.",
     icon: "ruler",
-    startingFrom: 450,
     services: [
-      "Fascias & soffits",
+      "Fascias & soffits (uPVC & timber)",
       "Gutter replacement & repair",
       "Gutter cleaning",
       "Dry verge conversions",
       "Cladding & sheeting",
       "Roofline maintenance",
+      "Downpipe repair & replacement",
     ],
     highlights: ["uPVC & timber options", "Colour-matched fittings", "Gutter clearance service"],
   },
   {
     id: "asbestos-removal",
-    title: "Asbestos Removal",
-    short: "Licensed asbestos specialists",
+    title: "Asbestos Roof Work",
+    short: "UKATA-trained asbestos removal",
+    // [CONFIRM] Wording reflects UKATA training (verified). Do not say "Licensed" until HSE licence confirmed.
     description:
-      "Licensed asbestos survey and removal for cement roofing sheets, garages and outbuildings — carried out to current HSE guidance with licensed disposal.",
+      "UKATA-trained asbestos cement roof work — including asbestos cement sheets, garages and foam insulation removal. Carried out to current HSE guidance with licensed disposal.",
     icon: "shield-alert",
-    startingFrom: 650,
     services: [
       "Asbestos cement roof removal",
       "Asbestos garage roof replacement",
+      "Asbestos roof foam insulation removal",
       "Asbestos survey & sampling",
       "Safe licensed disposal",
-      "Asbestos sheeting replacement",
       "Re-roofing after asbestos removal",
     ],
-    highlights: ["Fully licensed", "HSE-compliant process", "Environment Agency waste carrier"],
+    highlights: ["UKATA-trained team", "HSE-compliant process", "Licensed waste disposal"],
   },
 ] as const;
 
@@ -194,15 +235,15 @@ export const serviceAreas = [
     name: "Bexley",
     postcode: "DA5",
     blurb:
-      "Our home turf. We've been roofing across Bexley for 30+ years — from period terraces on the High Street to 1930s semis off Bourne Road. Most jobs are within walking distance of the Old Mill.",
-    highlights: ["30+ years local", "Old Mill based", "Same-day emergency call-outs"],
+      "Our home turf. We've been roofing across Bexley for over 25 years — from period terraces on the High Street to 1930s semis off Bourne Road. The yard's at the Old Mill on Bexley High Street.",
+    highlights: ["25+ years local", "Old Mill based", "24-hour emergency call-outs"],
   },
   {
     slug: "bexleyheath",
     name: "Bexleyheath",
     postcode: "DA6",
     blurb:
-      "Busy shopping centre, lots of 1930s–70s housing stock with concrete interlocking tiles now reaching end of life. We replace more roofs in Bexleyheath than anywhere else.",
+      "Busy shopping centre, lots of 1930s–70s housing stock with concrete interlocking tiles now reaching end of life. A steady stream of re-roofs and flat roof replacements.",
     highlights: ["End-of-life tile re-roofs", "Flat roof specialists", "Free site surveys"],
   },
   {
@@ -226,7 +267,7 @@ export const serviceAreas = [
     name: "Belvedere",
     postcode: "DA17",
     blurb:
-      "Belvedere's mix of industrial units and Victorian terraces means we handle everything from commercial felt roofing to domestic chimney stacks — all fully licensed and insured.",
+      "Belvedere's mix of industrial units and Victorian terraces means we handle everything from commercial felt roofing to domestic chimney stacks — all fully insured.",
     highlights: ["Commercial felt roofing", "Victorian terrace specialists", "Asbestos garage removal"],
   },
   {
@@ -255,95 +296,89 @@ export const serviceAreas = [
   },
 ] as const;
 
+// ============================================================================
+// REAL REVIEWS — verbatim from Checkatrade, attributed as published.
+// Source: https://www.checkatrade.com/trades/russellsroofingserviceltd (verified 2026-07-10)
+// These are publicly-published Checkatrade reviews, reproduced with attribution + link.
+// To update: pull fresh reviews from the Checkatrade profile before launch.
+// ============================================================================
 export type Review = {
-  name: string;
-  area: string;
+  name: string; // As shown on Checkatrade ("Verified reviewer" where no name is published)
+  area: string; // Job location postcode area as shown on Checkatrade
   rating: number;
-  date: string;
-  quote: string;
-  service: string;
+  date: string; // As shown on Checkatrade ("Posted DD Month")
+  quote: string; // Verbatim review text
+  service: string; // Job type as categorised on Checkatrade
+  source: "Checkatrade";
 };
 
-// Attributed by first name + postcode area as per brief (real review spirit, no fabricated full names)
 export const reviews: Review[] = [
   {
-    name: "Sarah",
-    area: "DA5",
+    name: "Verified reviewer",
+    area: "DA2",
     rating: 10,
-    date: "June 2026",
+    date: "Posted 12 February",
     quote:
-      "Adam and the team replaced our entire 1930s tiled roof in nine days. Tidied up every evening, no rubbish left in the drive, and the price didn't budge from the quote. Genuinely the most painless trade job we've ever had done.",
-    service: "Complete Roof Replacement",
+      "We had a leaking roof. Adam and his team came straight to the spot where the reason was and gave the quote straight after. All the price list was transparent and reasonable. The job was done perfectly and professionally. We are very happy with the work and would definitely recommend them if you have roof problems.",
+    service: "Roofer",
+    source: "Checkatrade",
   },
   {
-    name: "Mark",
-    area: "DA6",
-    rating: 10,
-    date: "May 2026",
-    quote:
-      "Had three quotes for a flat garage roof. Russells weren't the cheapest but they were the only ones who actually explained why the felt had failed. GRP fibreglass done in two days — bone dry ever since.",
-    service: "GRP Flat Roofing",
-  },
-  {
-    name: "Linda",
+    name: "Verified reviewer",
     area: "DA14",
-    rating: 9,
-    date: "April 2026",
+    rating: 10,
+    date: "Posted 31 May",
     quote:
-      "Called them out for a leak that two other roofers had 'fixed'. They found the actual cause (cracked lead around the chimney) within twenty minutes. Honest, knowledgeable, and didn't oversell.",
-    service: "Chimney Flashing Repair",
+      "We used this company to replace all ridge tiles and fix loose tiles where found. Adam, Jimmy and team were friendly, professional and polite and explained everything that needed to be done, and cleared and cleaned all areas of work. We would happily recommend this company.",
+    service: "Roofer",
+    source: "Checkatrade",
   },
   {
-    name: "James",
+    name: "Review via Checkatrade",
+    area: "SE9",
+    rating: 10,
+    date: "Posted 13 June",
+    quote:
+      "Russell's Roofing changed my outdated fascia, soffits and guttering on the whole house, including loft dormer. The quality of work was very good and good communication with Adam when the work could not start due to heat wave and some very wet days. The work was completed in about 2.5 days and the guys did a good job. The price was very reasonable and he saved me over £1000 and did the job without scaffolding. I would highly recommend this company.",
+    service: "Fascia / Soffits / Guttering",
+    source: "Checkatrade",
+  },
+  {
+    name: "Review via Checkatrade",
     area: "DA16",
     rating: 10,
-    date: "March 2026",
+    date: "Posted 15 June",
     quote:
-      "Emergency call-out after a storm ripped half the ridge tiles off. They were on the roof within three hours and had it weather-tight before the next downpour. Brilliant service.",
-    service: "Emergency Storm Repair",
+      "Downpipe leaking after heavy rainfall. Contacted Russell roofing who sent a team to have a look and fix. Friendly team and fixed the issue. Recommended.",
+    service: "Fascia / Soffits / Guttering",
+    source: "Checkatrade",
   },
   {
-    name: "Priya",
-    area: "BR6",
-    rating: 10,
-    date: "February 2026",
-    quote:
-      "Dry ridge conversion on a detached house. The crew were polite, punctual, and the new system looks fantastic. No more loose tiles every winter. Highly recommend.",
-    service: "Dry Ridge Conversion",
-  },
-  {
-    name: "Terry",
-    area: "DA17",
-    rating: 9,
-    date: "January 2026",
-    quote:
-      "Used Russells to take down an asbestos garage roof and replace it. They handled the whole licensed removal properly — certificates, disposal, the lot. No cowboy stuff. Proper job.",
-    service: "Asbestos Garage Removal",
-  },
-  {
-    name: "Helen",
-    area: "DA1",
-    rating: 10,
-    date: "December 2025",
-    quote:
-      "Two Velux windows fitted into a converted loft. Immaculate finish inside and out, no leaks, and they talked me through the flashing detail so I understood what I was paying for.",
-    service: "Velux Window Installation",
-  },
-  {
-    name: "Graham",
+    name: "Verified reviewer",
     area: "DA15",
     rating: 10,
-    date: "November 2025",
+    date: "Posted 19 February",
     quote:
-      "Annual maintenance plan — best money I spend on the house. They catch the small stuff before it becomes a big bill. Wouldn't use anyone else now.",
-    service: "Annual Maintenance Plan",
+      "Had guttering replaced around the whole house. Guys turned up on time, and worked throughout the day until complete. Price was fair and the roofers were polite and respectful of the property. Recommended.",
+    service: "Fascia / Soffits / Guttering",
+    source: "Checkatrade",
+  },
+  {
+    name: "Verified reviewer",
+    area: "BR8",
+    rating: 10,
+    date: "Posted 09 February",
+    quote:
+      "Russell's Roofing Services honour the word they say when they take care of your new roof — provide necessary support throughout the guaranteed time frame, send guys who are polite and who respect your home rules. If there is something small or a big issue, they don't hesitate to sort it out in a timely manner. I would always recommend them for your roof care.",
+    service: "Roofer",
+    source: "Checkatrade",
   },
 ] as const;
 
 export const faqs = [
   {
     q: "How much does a new roof cost in Bexley?",
-    a: "A complete roof replacement on a typical 3-bed Bexley semi starts around £4,500–£7,000 for concrete interlocking tiles and £6,500–£10,000+ for slate. Flat roofs start from around £1,200. Every roof is different — we give you a fixed, itemised quote after a free site survey, so you'll know exactly what you're paying for before any work starts.",
+    a: "Every roof is different, so we don't publish a price list — we give you a fixed, itemised quote after a free site survey. That way you know exactly what you're paying for before any work starts, with no hidden costs. Book a free survey and we'll put a written quote in your hands.",
   },
   {
     q: "Do I need planning permission for a flat roof?",
@@ -355,11 +390,15 @@ export const faqs = [
   },
   {
     q: "Do you offer emergency call-outs?",
-    a: "Yes. If you've got an active leak or storm damage, call us on 01322 681808 and we'll prioritise getting a roofer out to make it safe and weather-tight, usually the same day across Bexley, Bexleyheath, Sidcup, Welling and the wider SE London area.",
+    a: "Yes — we offer a 24-hour emergency call-out service across Bexley, Bexleyheath, Sidcup, Welling and the wider SE London area. If you've got an active leak or storm damage, call us on 01322 681808 and we'll prioritise getting a roofer out to make it safe and weather-tight.",
   },
   {
-    q: "Are you actually licensed to remove asbestos?",
-    a: "Yes — we hold a full asbestos removal licence and an Environment Agency waste carrier's licence. We handle asbestos cement roofing sheets, garages and outbuildings to current HSE guidance, with proper licensed disposal and certificates.",
+    q: "Are you trained to handle asbestos roofs?",
+    a: "Yes — our team is UKATA-trained (United Kingdom Asbestos Training Association) for asbestos cement roof work, including asbestos cement sheets, garages and foam insulation removal. Work is carried out to current HSE guidance with licensed disposal. Checkatrade verifies our accreditation.",
+  },
+  {
+    q: "Do you take a deposit?",
+    a: "No. We do not take deposits — you pay on completion of the agreed work. All our work is also backed by an insurance-backed guarantee.",
   },
   {
     q: "How quickly can you come out to quote?",
@@ -367,11 +406,11 @@ export const faqs = [
   },
   {
     q: "What areas do you cover?",
-    a: "Bexley, Bexleyheath, Sidcup, Welling, Belvedere, Swanley, Orpington, Dartford and the wider South East London / Kent area. If you're not sure, just give us your postcode — we cover most of DA, BR and SE postcodes.",
+    a: "Bexley, Bexleyheath, Sidcup, Welling, Belvedere, Swanley, Orpington, Dartford and the wider South East London / Kent area. If you're not sure, just give us your postcode — we cover most DA, BR and SE postcodes.",
   },
   {
     q: "Are you insured?",
-    a: "Yes — fully comprehensive public liability insurance, plus our asbestos removal licence and Environment Agency waste carrier's licence. Certificates available on request before any work starts.",
+    a: "Yes — fully comprehensive public liability insurance, and all our work is backed by an insurance-backed guarantee. We undertake insurance work and certificates are available on request before any work starts.",
   },
   {
     q: "What's the best flat roof system?",
@@ -379,15 +418,11 @@ export const faqs = [
   },
   {
     q: "Do you do small repairs, or only big jobs?",
-    a: "We do both. A slipped tile or a leaking gutter is just as welcome as a full re-roof — we've been looking after Bexley's roofs for 30 years, large and small. No job is too small for a proper fix.",
+    a: "We do both. A slipped tile or a leaking gutter is just as welcome as a full re-roof — we've been looking after Bexley's roofs for over 25 years, large and small. No job is too small for a proper fix.",
   },
   {
     q: "How do I know if my roof needs replacing?",
     a: "Common signs: tiles lifting or sliding, daylight through the loft, damp patches on ceilings, granules collecting in gutters, or a roof over 25 years old. Book a free survey and we'll give you an honest assessment — we'll tell you if a repair will do, not push a replacement you don't need.",
-  },
-  {
-    q: "Can you install Velux windows or rooflights?",
-    a: "Yes — Velux installation and rooflight fitting is one of our regular services, including the flashing detail that keeps them watertight for decades. We handle both new installations and replacements.",
   },
 ] as const;
 
@@ -417,8 +452,8 @@ export const galleryItems = [
     id: "g4",
     title: "Asbestos Garage Removal",
     area: "Belvedere, DA17",
-    service: "Licensed Asbestos Removal",
-    description: "Safe licensed removal of asbestos cement roof sheets, replaced with a modern insulated panel system.",
+    service: "UKATA Asbestos Cement Removal",
+    description: "Safe UKATA-trained removal of asbestos cement roof sheets, replaced with a modern insulated panel system.",
   },
   {
     id: "g5",

@@ -19,8 +19,8 @@ export function ServicesGrid() {
             Full-service roofing, done properly
           </h2>
           <p className="mt-4 text-base text-muted-foreground sm:text-lg">
-            Six core service areas covering everything from a single slipped tile to a full re-roof — and the
-            licensed asbestos work most local roofers can't touch.
+            Six core service areas covering everything from a single slipped tile to a full re-roof — plus
+            UKATA-trained asbestos roof work most local roofers can't offer.
           </p>
         </div>
 
@@ -53,12 +53,7 @@ export function ServicesGrid() {
                 </ul>
 
                 <div className="mt-5 flex items-center justify-between border-t border-border pt-4">
-                  <span className="text-xs text-muted-foreground">
-                    From{" "}
-                    <span className="font-display text-base font-bold text-foreground">
-                      £{cat.startingFrom.toLocaleString()}
-                    </span>
-                  </span>
+                  <span className="text-xs font-medium text-accent">Free quote</span>
                   <div className="flex gap-2">
                     <button
                       onClick={() => openQuoteModal({ serviceType: cat.title })}

@@ -51,8 +51,8 @@ export function Footer() {
           </div>
           <p className="text-sm leading-relaxed text-primary-foreground/70">
             {business.legalName} — {business.structure.toLowerCase()}, serving Bexley, South East London
-            and Kent for {business.yearsTrading} years. Fully insured, licensed asbestos removal, Environment
-            Agency waste carrier.
+            and Kent for {business.yearsTrading} years. Fully insured, UKATA-trained for asbestos roof work,
+            insurance-backed guarantee, no deposits.
           </p>
           <div className="flex flex-wrap gap-2">
             <Badge className="gap-1 border-primary-foreground/20 bg-primary-foreground/5 text-primary-foreground/90">
@@ -123,6 +123,15 @@ export function Footer() {
             </li>
             <li>
               <a
+                href={business.mobileHref}
+                className="flex items-center gap-3 text-primary-foreground/70 transition hover:text-accent"
+              >
+                <Phone className="h-4 w-4 shrink-0 text-accent" />
+                {business.mobile} <span className="text-primary-foreground/40">(mobile)</span>
+              </a>
+            </li>
+            <li>
+              <a
                 href={business.emailHref}
                 className="flex items-center gap-3 text-primary-foreground/70 transition hover:text-accent"
               >
@@ -133,7 +142,7 @@ export function Footer() {
             <li className="flex items-start gap-3">
               <Clock className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
               <span className="text-primary-foreground/70">
-                Mon–Fri 7:30am–6pm · Sat 8am–2pm · Sun emergency only
+                24-hour emergency call-out · Call us for office hours
               </span>
             </li>
           </ul>
@@ -144,7 +153,7 @@ export function Footer() {
       <div className="border-t border-primary-foreground/10">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-6 py-5 text-xs text-primary-foreground/60 sm:flex-row">
           <p>
-            © {new Date().getFullYear()} {business.legalName}. Registered in England & Wales. All rights reserved.
+            © {new Date().getFullYear()} {business.legalName}. Registered in England & Wales · Company No {business.companyNumber} · VAT {business.vatNumber}. All rights reserved.
           </p>
           <nav className="flex flex-wrap items-center justify-center gap-4">
             {legalLinks.map((l) => (

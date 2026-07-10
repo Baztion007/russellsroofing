@@ -45,7 +45,7 @@ export function QuoteForm({
   onSuccess,
   submitLabel = "Request my free quote",
 }: {
-  prefill?: { serviceType?: string; estimate?: number; urgency?: string } | null;
+  prefill?: { serviceType?: string; postcode?: string; urgency?: string } | null;
   compact?: boolean;
   onSuccess?: () => void;
   submitLabel?: string;
@@ -63,6 +63,7 @@ export function QuoteForm({
     resolver: zodResolver(schema),
     defaultValues: {
       serviceType: prefill?.serviceType ?? "",
+      postcode: prefill?.postcode ?? "",
       urgency: (prefill?.urgency as FormValues["urgency"]) ?? "standard",
     },
   });
@@ -76,7 +77,7 @@ export function QuoteForm({
       const res = await fetch("/api/quote", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...values, estimate: prefill?.estimate ?? null }),
+        body: JSON.stringify(values),
       });
       if (!res.ok) throw new Error("Request failed");
       toast.success("Quote request received", {
@@ -179,14 +180,21 @@ export function QuoteForm({
         />
       </div>
 
-      {prefill?.estimate ? (
+      {prefill?.serviceType && (
         <div className="rounded-lg border border-accent/30 bg-accent/5 p-3 text-sm">
-          <span className="text-muted-foreground">Indicative estimate from the calculator: </span>
-          <span className="font-semibold text-foreground">
-            £{prefill.estimate.toLocaleString()}–£{Math.round(prefill.estimate * 1.3).toLocaleString()}
-          </span>
+          <span className="text-muted-foreground">From the quick quote wizard: </span>
+          <span className="font-semibold text-foreground">{prefill.serviceType}</span>
+          {prefill.postcode && (
+            <>
+              {" · "}
+              <span className="font-semibold text-foreground">{prefill.postcode.toUpperCase()}</span>
+            </>
+          )}
+          <p className="mt-1 text-xs text-muted-foreground">
+            We'll confirm the exact scope and a fixed price after your free site survey.
+          </p>
         </div>
-      ) : null}
+      )}
 
       <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
         <Button

@@ -62,7 +62,7 @@ export function ContactView() {
                       Phone (tap to call)
                     </p>
                     <p className="font-display text-lg font-bold">{business.phone}</p>
-                    <p className="text-xs text-muted-foreground">Mon–Fri 7:30am–6pm · Sat 8am–2pm</p>
+                    <p className="text-xs text-muted-foreground">24-hour emergency call-out · 7 days</p>
                   </div>
                 </a>
 
@@ -99,16 +99,14 @@ export function ContactView() {
                   </span>
                   <div className="w-full">
                     <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                      Opening hours
+                      Hours & availability
                     </p>
-                    <ul className="mt-1 space-y-0.5 text-sm">
-                      {business.openingHours.map((h) => (
-                        <li key={h.day} className="flex justify-between gap-2">
-                          <span className="font-medium">{h.day}</span>
-                          <span className="text-muted-foreground">{h.hours}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      <strong className="text-foreground">{business.emergencyCallout}</strong> — available 7 days for urgent leaks and storm damage.
+                    </p>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      For office hours and non-urgent enquiries, please call us.
+                    </p>
                   </div>
                 </div>
               </div>

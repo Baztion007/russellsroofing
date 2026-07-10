@@ -23,18 +23,19 @@ export function WhyChooseUs() {
             </h2>
             <p className="mt-4 text-base text-muted-foreground sm:text-lg">
               We're not a franchise, a call centre, or a lead-generation site. We're a family roofing business
-              that's been on Bexley High Street for three decades — and our reputation is the thing we protect
+              that's been on Bexley High Street for over 25 years — and our reputation is the thing we protect
               most.
             </p>
 
             <div className="mt-6 rounded-2xl border border-border bg-card p-6 shadow-brand">
               <Quote className="h-6 w-6 text-accent" />
               <p className="mt-3 font-display text-lg font-medium leading-snug">
-                "Honest, knowledgeable, and didn't oversell. They found the actual cause within twenty
-                minutes — two other roofers had missed it."
+                "Adam, Jimmy and team were friendly, professional and polite and explained everything that
+                needed to be done, and cleared and cleaned all areas of work. We would happily recommend this
+                company."
               </p>
               <p className="mt-3 text-sm text-muted-foreground">
-                — Verified Checkatrade reviewer, Sidcup DA14
+                — Verified reviewer, Sidcup DA14 · via Checkatrade · 10/10
               </p>
             </div>
 
@@ -75,7 +76,7 @@ export function WhyChooseUs() {
 
             {/* Stats band */}
             <div className="mt-6 grid grid-cols-2 gap-4 rounded-2xl bg-primary p-6 text-primary-foreground sm:grid-cols-4">
-              <Stat value={`${business.checkatradeRating}/10`} label="Checkatrade rating" />
+              <Stat value={`${business.checkatradeRatingDisplay}/10`} label="Checkatrade rating" />
               <Stat value={`${business.checkatradeReviews}`} label="Verified reviews" />
               <Stat value={`${business.yearsTrading}`} label="Years trading" />
               <Stat value="6" label="Core service areas" />
