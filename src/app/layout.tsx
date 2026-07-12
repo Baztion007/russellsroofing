@@ -43,6 +43,11 @@ export const metadata: Metadata = {
   publisher: "Russells Roofing Services Ltd",
   alternates: { canonical: "/" },
   formatDetection: { telephone: true, address: true, email: true },
+  icons: {
+    icon: "/logo.svg",
+    shortcut: "/logo.svg",
+    apple: "/logo.svg",
+  },
   openGraph: {
     type: "website",
     locale: "en_GB",
@@ -51,6 +56,14 @@ export const metadata: Metadata = {
     title: "Bexley & SE London's Trusted Roofers — Over 30 Years of Honest Roofing",
     description:
       "Free, no-obligation quotes. Fully insured. UKATA-trained asbestos roof work. No deposits. Rated 9.55/10 on Checkatrade from 462 reviews.",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1344,
+        height: 768,
+        alt: "Russells Roofing Services Ltd — Bexley & SE London roofers, 30+ years",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",

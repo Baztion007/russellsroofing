@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Phone, Star, ShieldCheck, Clock, ChevronRight, MapPin } from "lucide-react";
 
 export function Hero() {
-  const { openQuoteModal, setView, goArea } = useNav();
+  const { openQuoteModal, setView } = useNav();
 
   return (
     <section className="relative isolate overflow-hidden bg-primary text-primary-foreground">
@@ -119,34 +119,39 @@ export function Hero() {
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="font-display text-sm font-semibold uppercase tracking-wider text-accent">
-                      Quick quote
+                      Free quote
                     </p>
-                    <p className="mt-1 text-lg font-semibold">Need a price fast?</p>
+                    <p className="mt-1 text-lg font-semibold">Get your quote in 30 seconds</p>
                   </div>
                   <span className="rounded-full bg-accent px-2.5 py-1 text-xs font-bold text-accent-foreground">
                     Free
                   </span>
                 </div>
                 <p className="mt-3 text-sm text-primary-foreground/70">
-                  Check we cover your area, tell us about the job, then book a free site survey for a fixed-price quote.
+                  Check we cover your postcode, tell us about the job, then book a free site survey for a
+                  fixed-price quote. No obligation, no deposits.
                 </p>
                 <div className="mt-5 space-y-2">
                   <button
-                    onClick={() => setView("home")}
-                    className="flex w-full items-center justify-between rounded-lg border border-primary-foreground/15 bg-primary-foreground/5 px-4 py-3 text-left text-sm transition hover:bg-primary-foreground/10"
+                    onClick={() => {
+                      document
+                        .getElementById("quote-calculator")
+                        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }}
+                    className="flex w-full items-center justify-between rounded-lg bg-accent px-4 py-3 text-left text-sm font-semibold text-accent-foreground shadow-orange-glow transition hover:bg-accent/90"
                   >
-                    <span className="font-medium">Use the instant calculator</span>
-                    <ChevronRight className="h-4 w-4 text-accent" />
-                  </button>
-                  <button
-                    onClick={() => openQuoteModal()}
-                    className="flex w-full items-center justify-between rounded-lg bg-accent px-4 py-3 text-left text-sm font-semibold text-accent-foreground transition hover:bg-accent/90"
-                  >
-                    <span>Request a free site survey</span>
+                    <span>Start the quick quote wizard</span>
                     <ChevronRight className="h-4 w-4" />
                   </button>
                   <button
-                    onClick={() => goArea("bexley")}
+                    onClick={() => openQuoteModal()}
+                    className="flex w-full items-center justify-between rounded-lg border border-primary-foreground/15 bg-primary-foreground/5 px-4 py-3 text-left text-sm transition hover:bg-primary-foreground/10"
+                  >
+                    <span className="font-medium">Request a free site survey</span>
+                    <ChevronRight className="h-4 w-4 text-accent" />
+                  </button>
+                  <button
+                    onClick={() => setView("areas")}
                     className="flex w-full items-center justify-between rounded-lg border border-primary-foreground/15 bg-primary-foreground/5 px-4 py-3 text-left text-sm transition hover:bg-primary-foreground/10"
                   >
                     <span className="font-medium">See if we cover your area</span>
