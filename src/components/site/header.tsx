@@ -56,7 +56,7 @@ export function Header() {
           <div className="flex items-center gap-5">
             <span className="flex items-center gap-1.5">
               <Star className="h-3.5 w-3.5 fill-accent text-accent" />
-              <strong className="font-semibold">{business.checkatradeRatingDisplay}/10</strong>
+              <strong className="font-semibold">{business.checkatradeRating}/10</strong>
               <span className="text-primary-foreground/70">
                 on Checkatrade ({business.checkatradeReviews} reviews)
               </span>
@@ -172,7 +172,7 @@ export function Header() {
                   </a>
                 </div>
                 <div className="mt-4 rounded-lg bg-muted p-4 text-xs text-muted-foreground">
-                  <p className="font-semibold text-foreground">Family-owned · over 25 years</p>
+                  <p className="font-semibold text-foreground">Family-owned · over 30 years</p>
                   <p className="mt-1">{business.address.full}</p>
                 </div>
               </div>

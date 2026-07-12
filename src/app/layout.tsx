@@ -22,11 +22,11 @@ const SITE_URL = "https://www.russellsroofing.uk";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Russells Roofing Services Ltd | Bexley & SE London Roofers — 25+ Years",
+    default: "Russells Roofing Services Ltd | Bexley & SE London Roofers — 30+ Years",
     template: "%s | Russells Roofing Services Ltd",
   },
   description:
-    "Family-owned roofers in Bexley, Kent serving South East London for over 25 years. Roof replacements, repairs, flat roofing, chimney work & UKATA-trained asbestos roof work. 9.6/10 on Checkatrade (462 reviews). Free quotes, no deposits.",
+    "Family-owned roofers in Bexley, Kent serving South East London for over 30 years. Roof replacements, repairs, flat roofing, chimney work & UKATA-trained asbestos roof work. 9.55/10 on Checkatrade (462 reviews). Free quotes, no deposits.",
   keywords: [
     "roofer Bexley",
     "roofing Bexley",
@@ -48,15 +48,15 @@ export const metadata: Metadata = {
     locale: "en_GB",
     url: SITE_URL,
     siteName: "Russells Roofing Services Ltd",
-    title: "Bexley & SE London's Trusted Roofers — Over 25 Years of Honest Roofing",
+    title: "Bexley & SE London's Trusted Roofers — Over 30 Years of Honest Roofing",
     description:
-      "Free, no-obligation quotes. Fully insured. UKATA-trained asbestos roof work. No deposits. Rated 9.6/10 on Checkatrade from 462 reviews.",
+      "Free, no-obligation quotes. Fully insured. UKATA-trained asbestos roof work. No deposits. Rated 9.55/10 on Checkatrade from 462 reviews.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Russells Roofing Services Ltd — Bexley & SE London",
     description:
-      "Over 25 years of honest, insurance-backed roofing. Rated 9.6/10 on Checkatrade (462 reviews). Free quotes, no deposits.",
+      "Over 30 years of honest, insurance-backed roofing. Rated 9.55/10 on Checkatrade (462 reviews). Free quotes, no deposits.",
   },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
   category: "Home Services",
@@ -68,7 +68,7 @@ const localBusinessSchema = {
   name: "Russells Roofing Services Ltd",
   legalName: "Russells Roofing Services Ltd",
   description:
-    "Family-owned roofing contractor with over 25 years of experience serving Bexley, South East London and Kent. Fully insured, insurance-backed guarantee, UKATA-trained for asbestos roof work. No deposits taken.",
+    "Family-owned roofing contractor with over 30 years of experience serving Bexley, South East London and Kent. Fully insured, insurance-backed guarantee, UKATA-trained for asbestos roof work. No deposits taken.",
   url: SITE_URL,
   telephone: "+441322681808",
   email: "info@russellsroofing.uk",

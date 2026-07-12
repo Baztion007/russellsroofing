@@ -43,13 +43,13 @@ export function Hero() {
               Bexley & South East London's
               <span className="block text-accent">trusted roofers</span>
               <span className="mt-2 block text-2xl font-semibold text-primary-foreground/90 sm:text-3xl lg:text-4xl">
-                Over 25 years of honest, insurance-backed roofing.
+                Over 30 years of honest, insurance-backed roofing.
               </span>
             </h1>
 
             <p className="mt-6 max-w-xl text-base text-primary-foreground/80 sm:text-lg">
               Free, no-obligation quotes. Fully insured. UKATA-trained asbestos roof work. No deposits. Rated{" "}
-              <strong className="font-semibold text-accent">{business.checkatradeRatingDisplay}/10</strong> on
+              <strong className="font-semibold text-accent">{business.checkatradeRating}/10</strong> on
               Checkatrade from <strong className="font-semibold text-accent">{business.checkatradeReviews}</strong>{" "}
               genuine reviews.
             </p>
@@ -82,7 +82,7 @@ export function Hero() {
                   <Star className="h-3.5 w-3.5 fill-accent text-accent" /> Checkatrade
                 </dt>
                 <dd className="mt-1 font-display text-xl font-bold text-primary-foreground">
-                  {business.checkatradeRatingDisplay}
+                  {business.checkatradeRating}
                   <span className="text-sm font-normal text-primary-foreground/60">/10</span>
                 </dd>
                 <dd className="text-xs text-primary-foreground/50">{business.checkatradeReviews} reviews</dd>

@@ -35,13 +35,13 @@ export const business = {
   email: "info@russellsroofing.uk",
   emailHref: "mailto:info@russellsroofing.uk",
   website: "https://www.russellsroofing.uk",
-  // Checkatrade Company Info: "in operation for over 25 years"
-  yearsTrading: "25+",
+  // [CONFIRM-CLIENT] Years trading: client's own About page says "over 30 years";
+  //   Checkatrade profile says "over 25 years". Using 30+ (client's own claim). Client must reconcile.
+  yearsTrading: "30+",
   // Checkatrade profile: "Member since January 2013" → 13 years on Checkatrade
   checkatradeYears: "13",
-  // Checkatrade profile header: "9.55/10 · 462 reviews" (displayed as 9.6/10 rounded in search)
+  // [VERIFIED] Checkatrade profile header: "9.55/10 · 462 reviews". Use 9.55/10 EVERYWHERE.
   checkatradeRating: "9.55",
-  checkatradeRatingDisplay: "9.6",
   checkatradeReviews: 462,
   checkatradeProfileUrl: "https://www.checkatrade.com/trades/russellsroofingserviceltd",
   trustmarkReg: "3168056",
@@ -234,14 +234,18 @@ export const serviceAreas = [
     slug: "bexley",
     name: "Bexley",
     postcode: "DA5",
+    lat: 51.4419,
+    lon: 0.1488,
     blurb:
-      "Our home turf. We've been roofing across Bexley for over 25 years — from period terraces on the High Street to 1930s semis off Bourne Road. The yard's at the Old Mill on Bexley High Street.",
-    highlights: ["25+ years local", "Old Mill based", "24-hour emergency call-outs"],
+      "Our home turf. We've been roofing across Bexley for over 30 years — from period terraces on the High Street to 1930s semis off Bourne Road. The yard's at the Old Mill on Bexley High Street.",
+    highlights: ["30+ years local", "Old Mill based", "24-hour emergency call-outs"],
   },
   {
     slug: "bexleyheath",
     name: "Bexleyheath",
     postcode: "DA6",
+    lat: 51.456,
+    lon: 0.1383,
     blurb:
       "Busy shopping centre, lots of 1930s–70s housing stock with concrete interlocking tiles now reaching end of life. A steady stream of re-roofs and flat roof replacements.",
     highlights: ["End-of-life tile re-roofs", "Flat roof specialists", "Free site surveys"],
@@ -250,6 +254,8 @@ export const serviceAreas = [
     slug: "sidcup",
     name: "Sidcup",
     postcode: "DA14",
+    lat: 51.433,
+    lon: 0.104,
     blurb:
       "A mix of Edwardian and inter-war housing in Sidcup means plenty of slate and clay tile work — and a steady stream of chimney repointing and lead flashing repairs.",
     highlights: ["Slate & clay tile experts", "Chimney repointing", "Lead flashing specialists"],
@@ -258,6 +264,8 @@ export const serviceAreas = [
     slug: "welling",
     name: "Welling",
     postcode: "DA16",
+    lat: 51.464,
+    lon: 0.107,
     blurb:
       "Welling's post-war semis and bungalows throw up flat-roof extension and garage issues more than anywhere else on our patch. GRP fibreglass is our go-to system here.",
     highlights: ["GRP fibreglass specialists", "Extension flat roofs", "Garage roof replacement"],
@@ -266,6 +274,8 @@ export const serviceAreas = [
     slug: "belvedere",
     name: "Belvedere",
     postcode: "DA17",
+    lat: 51.491,
+    lon: 0.152,
     blurb:
       "Belvedere's mix of industrial units and Victorian terraces means we handle everything from commercial felt roofing to domestic chimney stacks — all fully insured.",
     highlights: ["Commercial felt roofing", "Victorian terrace specialists", "Asbestos garage removal"],
@@ -274,6 +284,8 @@ export const serviceAreas = [
     slug: "swanley",
     name: "Swanley",
     postcode: "DA8",
+    lat: 51.394,
+    lon: 0.165,
     blurb:
       "Newer housing stock in Swanley with the occasional listed farmhouse — we handle modern concrete tile roofs alongside traditional Kentish peg tile restoration.",
     highlights: ["Kentish peg tile restoration", "Modern concrete tiles", "Listed building experience"],
@@ -282,6 +294,8 @@ export const serviceAreas = [
     slug: "orpington",
     name: "Orpington",
     postcode: "BR6",
+    lat: 51.373,
+    lon: 0.088,
     blurb:
       "From Crofton to Goddington, Orpington's larger detached properties mean bigger roof areas — and bigger opportunities for dry ridge conversions and full ventilation upgrades.",
     highlights: ["Dry ridge conversions", "Roof ventilation upgrades", "Detached property specialists"],
@@ -290,6 +304,8 @@ export const serviceAreas = [
     slug: "dartford",
     name: "Dartford",
     postcode: "DA1",
+    lat: 51.446,
+    lon: 0.221,
     blurb:
       "Crossing the river into Kent proper, Dartford's mix of new builds and older terraces keeps us busy with everything from Velux installations to emergency storm damage repairs.",
     highlights: ["Velux installation", "Storm damage response", "New build roofing"],
@@ -418,7 +434,7 @@ export const faqs = [
   },
   {
     q: "Do you do small repairs, or only big jobs?",
-    a: "We do both. A slipped tile or a leaking gutter is just as welcome as a full re-roof — we've been looking after Bexley's roofs for over 25 years, large and small. No job is too small for a proper fix.",
+    a: "We do both. A slipped tile or a leaking gutter is just as welcome as a full re-roof — we've been looking after Bexley's roofs for over 30 years, large and small. No job is too small for a proper fix.",
   },
   {
     q: "How do I know if my roof needs replacing?",

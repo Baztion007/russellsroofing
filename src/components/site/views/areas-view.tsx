@@ -113,11 +113,9 @@ export function AreasView() {
                 {/* Map */}
                 <div className="mt-6 overflow-hidden rounded-xl border border-border">
                   <iframe
-                    title={`Map of ${selected.name} ${selected.postcode}`}
-                    src={`https://www.openstreetmap.org/export/embed.html?bbox=${encodeURIComponent(
-                      selected.name + " " + selected.postcode + " UK"
-                    )}&layer=mapnik`}
-                    className="h-56 w-full border-0"
+                    title={`Map showing ${selected.name}, ${selected.postcode}`}
+                    src={`https://maps.google.com/maps?q=${selected.lat},${selected.lon}&z=13&output=embed`}
+                    className="h-64 w-full border-0"
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                   />

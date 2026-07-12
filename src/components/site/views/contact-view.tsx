@@ -114,8 +114,8 @@ export function ContactView() {
               {/* Map */}
               <div className="mt-6 overflow-hidden rounded-xl border border-border shadow-brand">
                 <iframe
-                  title="Russells Roofing location map — Bexley High Street"
-                  src="https://www.openstreetmap.org/export/embed.html?bbox=0.143%2C51.438%2C0.156%2C51.446&layer=mapnik&marker=51.4419%2C0.1488"
+                  title="Russells Roofing location — 8 The Old Mill, Bexley High Street, DA5 1JX"
+                  src="https://maps.google.com/maps?q=51.4419,0.1488&z=15&output=embed"
                   className="h-64 w-full border-0"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"

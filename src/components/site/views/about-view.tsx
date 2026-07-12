@@ -13,7 +13,7 @@ import { ChevronRight, Phone, MapPin, Clock, Award, Users, ThumbsUp, Hammer } fr
 const milestones = [
   { year: "2013", title: "Joined Checkatrade", desc: "Russells Roofing becomes an approved Checkatrade member — vetted and accredited." },
   { year: "2013+", title: "UKATA asbestos training", desc: "Team certified by the United Kingdom Asbestos Training Association for asbestos cement roof work." },
-  { year: "Today", title: "9.6/10 rated", desc: `${business.checkatradeReviews} verified Checkatrade reviews and counting. Still family-owned, still Bexley-based.` },
+  { year: "Today", title: `${business.checkatradeRating}/10 rated`, desc: `${business.checkatradeReviews} verified Checkatrade reviews and counting. Still family-owned, still Bexley-based.` },
 ];
 
 const values = [
@@ -47,7 +47,7 @@ export function AboutView() {
       <PageHeader
         eyebrow="About us"
         title={`${business.yearsTrading} years of honest roofing in Bexley`}
-        subtitle={`${business.legalName} is a ${business.structure.toLowerCase()} roofing contractor based at the Old Mill on Bexley High Street. We've spent over 25 years looking after the roofs of Bexley, South East London and North Kent — large jobs and small.`}
+        subtitle={`${business.legalName} is a ${business.structure.toLowerCase()} roofing contractor based at the Old Mill on Bexley High Street. We've spent over 30 years looking after the roofs of Bexley, South East London and North Kent — large jobs and small.`}
       />
 
       {/* Story + image */}
@@ -68,7 +68,7 @@ export function AboutView() {
                 loading="lazy"
               />
               <div className="absolute bottom-4 left-4 rounded-lg bg-primary/90 px-4 py-2 text-primary-foreground backdrop-blur">
-                <p className="font-display text-sm font-bold">Bexley High Street · over 25 years local</p>
+                <p className="font-display text-sm font-bold">Bexley High Street · over 30 years local</p>
               </div>
             </motion.div>
 
@@ -81,7 +81,7 @@ export function AboutView() {
               </h2>
               <div className="mt-5 space-y-4 text-base leading-relaxed text-muted-foreground">
                 <p>
-                  We started out as a one-van family operation working out of Bexley. Over 25 years on, we're
+                  We started out as a one-van family operation working out of Bexley. Over 30 years on, we're
                   still here — still family-owned and run by Adam Russell, still answering the phone ourselves,
                   still treating every roof like it's the one over our own heads.
                 </p>
@@ -89,7 +89,7 @@ export function AboutView() {
                   What's changed is the scope. We're now one of the few roofing contractors in South East London
                   with a <strong className="text-foreground">UKATA-trained asbestos team</strong>, a 13-year
                   unbroken track record on Checkatrade (member since January 2013), and a current rating of{" "}
-                  <strong className="text-foreground">{business.checkatradeRatingDisplay}/10</strong> from{" "}
+                  <strong className="text-foreground">{business.checkatradeRating}/10</strong> from{" "}
                   <strong className="text-foreground">{business.checkatradeReviews} reviews</strong>.
                 </p>
                 <p>
@@ -109,7 +109,7 @@ export function AboutView() {
                   <p className="text-xs text-muted-foreground">Verified reviews</p>
                 </div>
                 <div className="rounded-xl border border-border bg-card p-4 shadow-brand">
-                  <p className="font-display text-2xl font-extrabold text-accent">{business.checkatradeRatingDisplay}</p>
+                  <p className="font-display text-2xl font-extrabold text-accent">{business.checkatradeRating}</p>
                   <p className="text-xs text-muted-foreground">Checkatrade rating /10</p>
                 </div>
                 <div className="rounded-xl border border-border bg-card p-4 shadow-brand">

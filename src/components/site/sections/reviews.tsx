@@ -16,7 +16,7 @@ export function Reviews() {
               Real Checkatrade reviews
             </p>
             <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight sm:text-4xl">
-              {business.checkatradeRatingDisplay}/10 from {business.checkatradeReviews} reviews on Checkatrade
+              {business.checkatradeRating}/10 from {business.checkatradeReviews} reviews on Checkatrade
             </h2>
             <p className="mt-4 text-base text-muted-foreground sm:text-lg">
               The reviews below are verbatim from our public Checkatrade profile — attributed exactly as
@@ -50,7 +50,7 @@ export function Reviews() {
                 ))}
               </div>
               <p className="mt-3 font-display text-2xl font-bold sm:text-3xl">
-                {business.checkatradeRatingDisplay}/10 average · {business.checkatradeReviews} verified reviews
+                {business.checkatradeRating}/10 average · {business.checkatradeReviews} verified reviews
               </p>
               <p className="mt-2 text-sm text-primary-foreground/70">
                 Member of Checkatrade since January 2013 · Quality of work 9.8 · Reliability 9.8 ·
@@ -59,7 +59,7 @@ export function Reviews() {
             </div>
             <div className="shrink-0 rounded-xl bg-primary-foreground/10 px-6 py-4 text-center backdrop-blur">
               <p className="font-display text-4xl font-extrabold text-accent">
-                {business.checkatradeRatingDisplay}
+                {business.checkatradeRating}
               </p>
               <p className="text-xs text-primary-foreground/70">/ 10 average</p>
             </div>

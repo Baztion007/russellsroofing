@@ -23,7 +23,7 @@ export function WhyChooseUs() {
             </h2>
             <p className="mt-4 text-base text-muted-foreground sm:text-lg">
               We're not a franchise, a call centre, or a lead-generation site. We're a family roofing business
-              that's been on Bexley High Street for over 25 years — and our reputation is the thing we protect
+              that's been on Bexley High Street for over 30 years — and our reputation is the thing we protect
               most.
             </p>
 
@@ -76,7 +76,7 @@ export function WhyChooseUs() {
 
             {/* Stats band */}
             <div className="mt-6 grid grid-cols-2 gap-4 rounded-2xl bg-primary p-6 text-primary-foreground sm:grid-cols-4">
-              <Stat value={`${business.checkatradeRatingDisplay}/10`} label="Checkatrade rating" />
+              <Stat value={`${business.checkatradeRating}/10`} label="Checkatrade rating" />
               <Stat value={`${business.checkatradeReviews}`} label="Verified reviews" />
               <Stat value={`${business.yearsTrading}`} label="Years trading" />
               <Stat value="6" label="Core service areas" />
